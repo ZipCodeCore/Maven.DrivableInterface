@@ -32,7 +32,7 @@ public class MountainBikeTest {
         Double expected = 26.5;
 
         // Act
-        mb.transport(2.0);
+        mb.transport(28.5 * 2.0);
         Double actual = mb.getTopSpeed();
 
         // Assert
@@ -71,7 +71,7 @@ public class MountainBikeTest {
         Integer expected = 28;
 
         // Act
-        mb.transport(28.5 * 2);
+        mb.transport(30.0 * 2);
         Integer actual = mb.getTirePressure();
 
         // Assert
@@ -84,7 +84,39 @@ public class MountainBikeTest {
         Integer expected = 27;
 
         // Act
-        mb.transport(28.5 * 3);
+        mb.transport(30.0 * 3);
+        Integer actual = mb.getTirePressure();
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void transportTirePressure3() {
+        // Arrange
+        Integer expected = 20;
+
+        // Act
+        mb.transport(30.0 * 100);
+        mb.transport(30.0 * 2);
+        Integer actual = mb.getTirePressure();
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void transportTirePressure4() {
+        // Arrange
+        Integer expected = 30;
+
+        // Act
+        mb.transport(29.9);
+        mb.transport(29.9);
+        mb.transport(29.9);
+        mb.transport(29.9);
+        mb.transport(29.9);
+        mb.transport(29.9);
         Integer actual = mb.getTirePressure();
 
         // Assert
@@ -109,7 +141,7 @@ public class MountainBikeTest {
         Integer expected = 30;
 
         // Act
-        mb.transport(28.5 * 3);
+        mb.transport(30.0 * 3);
         Integer tirePressureAfterTransport = mb.getTirePressure();
 
         mb.inflateTires();
@@ -121,12 +153,12 @@ public class MountainBikeTest {
     }
 
     @Test
-    public void reccommendedTirePressure() {
+    public void recommendedTirePressure() {
         // Arrange
         Integer expected = 30;
 
         // Act
-        Integer actual = mb.reccommendedTirePressure();
+        Integer actual = mb.recommendedTirePressure();
 
         // Assert
         assertEquals(expected, actual);
