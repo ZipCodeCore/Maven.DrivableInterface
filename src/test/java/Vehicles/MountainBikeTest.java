@@ -32,7 +32,8 @@ public class MountainBikeTest {
         Double expected = 26.5;
 
         // Act
-        mb.transport(30 * 2.0);
+        mb.transport(30.0);
+        mb.transport(30.0);
         Double actual = mb.getTopSpeed();
 
         // Assert
